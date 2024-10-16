@@ -1,0 +1,17 @@
+.about {
+  max-width: 1440px;
+  width: 100%;
+  height: 700px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.about__title {
+  width: auto;
+}
+
+.about__description {
+  text-align: center;
+  width: 600px;
+}

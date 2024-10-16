@@ -1,0 +1,38 @@
+.main {
+  position: relative;
+  max-width: 1440px;
+  width: 100%;
+}
+
+.main-image {
+  width: 100%;
+  height: auto;
+}
+
+.main-image__logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: auto;
+}
+
+.main__about {
+  position: absolute;
+  max-width: 1440px;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  /* height: auto; */
+}
+
+.main__about-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: rgb(255, 255, 255);
+}
