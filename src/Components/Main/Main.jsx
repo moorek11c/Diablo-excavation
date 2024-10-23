@@ -1,21 +1,21 @@
 import "./Main.css";
-import mainImg from "../../Assets/diablo-site-images copy/main-img.png";
-import mainLogo from "../../Assets/diablo-site-images copy/diablo-excavation-header-logo.png";
+import MainButtons from "./MainButtons/MainButtons";
+import mainImg from "../../Assets/diablo-site-images copy/unsplash-digging.png";
 
 function Main() {
   return (
     <main className="main">
-      <img className="main-image" src={mainImg} alt="" />
-      <img className="main-image__logo" src={mainLogo} alt="" />
-      <div className="main__about">
-        <p className="main__about-content">
-          Diablo Excavation & Construction inc is a leading general engineering
-          contractor that services Northern California and East Bay-area with 20
-          plus years of experience in the business we are your go to company for
-          Earthwork service, underground utilities, engineered septic systems,
-          grading work, footings and much more give us a call today and let us
-          know what your working on
+      <img className="main__image" src={mainImg} alt="Excevator digging" />
+      <div className="main-overlay">
+        <h2 className="main__mission-title">Our Mission </h2>
+        <p className="main__mission-statement">
+          At Diablo Excavation and Construction, we deliver expert emergency
+          services, specializing in grading, underground utilities, and concrete
+          work. With years of experience and a focus on timely, reliable
+          results, we ensure every project is completed with professionalism and
+          care.
         </p>
+        <MainButtons />
       </div>
     </main>
   );

@@ -1,0 +1,25 @@
+.contact {
+}
+
+.contact__list {
+  background-color: rgb(254, 144, 30);
+  display: flex;
+  list-style: none;
+  margin: 0;
+  justify-content: space-around;
+}
+
+.contact__link {
+  display: flex;
+  align-items: center;
+}
+
+.contact__icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
+
+.contact__info {
+  margin-right: 10px;
+}
