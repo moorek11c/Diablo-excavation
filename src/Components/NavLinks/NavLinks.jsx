@@ -16,7 +16,11 @@ function NavLinks() {
             About
           </NavLink>
         </li>
-        <li className="nav-link__item">Contact</li>
+        <li className="nav-link__item">
+          <NavLink className="nav-link" to="/contact">
+            Contact
+          </NavLink>
+        </li>
         <li className="nav-link">Gallery</li>
         <li className="nav-link">Reviews</li>
       </ul>

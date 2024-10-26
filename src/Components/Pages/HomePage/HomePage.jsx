@@ -1,13 +1,13 @@
 import Main from "../../Main/Main";
 import About from "../../About/About";
-import PreviewGallery from "../../PreviewGallery/PreviewGallery";
+import Carousel from "../../PreviewGallery/Carousel";
 
 function HomePage() {
   return (
     <div>
       <Main />
       <About />
-      <PreviewGallery />
+      <Carousel />
     </div>
   );
 }

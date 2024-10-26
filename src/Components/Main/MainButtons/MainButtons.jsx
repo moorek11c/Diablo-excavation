@@ -1,11 +1,15 @@
 import "./MainButtons.css";
 
-function MainButtons() {
+function MainButtons({ openQuotePopup }) {
   return (
     <div>
       <ul className="main__buttons-list">
         <li className="main__button-item">
-          <button type="button" className="main__button main__button-quote">
+          <button
+            onClick={openQuotePopup}
+            type="button"
+            className="main__button main__button-quote"
+          >
             Get Quote
           </button>
         </li>

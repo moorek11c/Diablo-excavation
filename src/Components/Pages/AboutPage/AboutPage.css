@@ -1,6 +1,6 @@
 .about-page {
   height: 600px;
-  background: linear-gradient(to top, orange 75%, black 25%);
+  background: linear-gradient(to top, rgba(254, 144, 30) 75%, black 25%);
   display: flex;
   flex-direction: column;
   align-items: center;

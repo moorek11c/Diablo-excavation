@@ -1,8 +1,11 @@
 import "./Main.css";
+import { usePopup } from "../Hooks/PopupHook";
 import MainButtons from "./MainButtons/MainButtons";
 import mainImg from "../../Assets/diablo-site-images copy/unsplash-digging.png";
 
 function Main() {
+  const { open: openQuotePopup } = usePopup("quote-form");
+
   return (
     <main className="main">
       <img className="main__image" src={mainImg} alt="Excevator digging" />
@@ -15,7 +18,7 @@ function Main() {
           results, we ensure every project is completed with professionalism and
           care.
         </p>
-        <MainButtons />
+        <MainButtons openQuotePopup={openQuotePopup} />
       </div>
     </main>
   );
