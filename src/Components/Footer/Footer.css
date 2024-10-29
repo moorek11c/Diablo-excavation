@@ -1,0 +1,27 @@
+.footer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background-color: #fe901e;
+  color: #333;
+  font-size: 14px;
+}
+
+.footer__img {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-links__list {
+  list-style: none;
+  display: flex;
+}
+
+.footer__img {
+  height: 24px;
+  width: 24px;
+}

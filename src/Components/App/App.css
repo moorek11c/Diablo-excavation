@@ -1,7 +1,7 @@
 #root {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 10px;
   font-family: "Cabinet Grotesk Regular", sans-serif, "Arial";
   scroll-behavior: smooth;
+  border: 1px solid #fe901e;
 }

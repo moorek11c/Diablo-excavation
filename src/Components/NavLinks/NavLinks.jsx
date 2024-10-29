@@ -1,4 +1,3 @@
-// import AboutPage from "../Pages/AboutPage/AboutPage";
 import "./NavLinks.css";
 import { NavLink } from "react-router-dom";
 
@@ -7,17 +6,32 @@ function NavLinks() {
     <nav className="nav-links">
       <ul className="nav-links__list">
         <li className="nav-link__item">
-          <NavLink className="nav-link" to="/">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "nav-link nav-link_active" : "nav-link"
+            }
+            to="/"
+          >
             Home
           </NavLink>
         </li>
         <li className="nav-link__item">
-          <NavLink className="nav-link" to="/about">
-            About
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "nav-link nav-link_active" : "nav-link"
+            }
+            to="/services"
+          >
+            Services
           </NavLink>
         </li>
         <li className="nav-link__item">
-          <NavLink className="nav-link" to="/contact">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "nav-link nav-link_active" : "nav-link"
+            }
+            to="/contact"
+          >
             Contact
           </NavLink>
         </li>
