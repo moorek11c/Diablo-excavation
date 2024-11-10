@@ -5,9 +5,14 @@ import ServiceList from "./ServicesList/ServiceList";
 
 function Services() {
   const [selectedDescription, setSelectedDescription] = useState("");
+  const [showDescription, setShowDescription] = useState(false);
 
   const handleCardClick = (description) => {
-    setSelectedDescription(description);
+    setShowDescription(false); // Hide the description to reset the animation
+    setTimeout(() => {
+      setSelectedDescription(description);
+      setShowDescription(true); // Show the description again to trigger the animation
+    }, 10); // Small delay to ensure the reset takes effect
   };
 
   return (
@@ -16,7 +21,9 @@ function Services() {
       <ServiceList onCardClick={handleCardClick} />
       <div className="services__content">
         <p
-          className={selectedDescription ? "services__description_opened" : ""}
+          className={`services__description ${
+            showDescription ? "services__description_opened" : ""
+          }`}
         >
           {selectedDescription}
         </p>

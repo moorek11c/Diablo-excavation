@@ -1,3 +1,14 @@
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .services {
   display: flex;
   background: #000;
@@ -8,7 +19,7 @@
 }
 
 .services__main-title {
-  color: white;
+  color: #ffcc00;
   align-self: center;
   margin: 0;
   margin-bottom: 15px;
@@ -18,6 +29,7 @@
   margin: 0;
   padding: 0;
   margin-top: 40px;
+  margin: 0 auto;
 }
 
 .services__description {
@@ -26,14 +38,17 @@
   padding: 0;
   margin: 0;
   color: white;
-  opacity: 0;
-  transition: visibility 1s, opacity 0.5s linear;
+  opacity: 0; /* Start hidden */
 }
 
 .services__description_opened {
   text-align: center;
-  color: white;
   padding: 0;
-  margin: 0;
-  color: white;
+  margin-top: 20px;
+  color: #000;
+  width: 600px;
+  height: auto;
+  background-color: #ffcc00;
+  border-radius: 10px;
+  animation: slideInFromTop 0.5s forwards; /* Apply slide-in animation */
 }

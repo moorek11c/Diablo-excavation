@@ -1,7 +1,7 @@
 import "./Main.css";
 import { usePopup } from "../Hooks/PopupHook";
 import MainButtons from "./MainButtons/MainButtons";
-import mainImg from "../../Assets/diablo-site-images copy/unsplash-digging.png";
+import mainImg from "../../Assets/unsplash-digging.png";
 
 function Main() {
   const { open: openQuotePopup } = usePopup("quote-form");

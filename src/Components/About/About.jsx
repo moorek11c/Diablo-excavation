@@ -1,5 +1,5 @@
 import "./About.css";
-import diabloLogo from "../../Assets/diablo-site-images copy/diablo-excavation-dark Background Removed.png";
+import diabloLogo from "../../Assets/diablo-excavation-dark Background Removed.png";
 
 function About() {
   return (

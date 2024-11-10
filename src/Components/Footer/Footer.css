@@ -5,15 +5,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
-  background-color: #fe901e;
+  height: 65px;
+  background-color: #ffcc00;
   color: #333;
   font-size: 14px;
+  border-top: 2px solid #000;
 }
 
 .footer__img {
   width: 40px;
   height: 40px;
+}
+
+.footer__info {
+  margin-left: 10px;
+}
+
+.footer__container {
+  display: flex;
+  align-items: center;
 }
 
 .footer-links__list {

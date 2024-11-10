@@ -1,6 +1,6 @@
 .service__card {
   display: flex;
-  background-color: #fe901e;
+  background-color: #ffcc00;
   border-radius: 10px;
   width: 240px;
   height: 150px;
@@ -10,7 +10,7 @@
 }
 
 .service__card:hover {
-  background-color: rgba(255, 255, 255, 0.7);
+  opacity: 0.5;
 }
 
 .service__img {
@@ -20,9 +20,13 @@
   border-bottom: 2px solid #000;
 }
 
-.services__title {
-  font-size: 20px;
+.service__info {
+  text-align: center;
+}
+
+.service__title {
+  font-size: 18px;
   margin: 0;
-  margin-top: 20px;
+  margin-top: 5px;
   margin-bottom: 20px;
 }

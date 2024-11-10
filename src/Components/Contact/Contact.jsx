@@ -1,8 +1,8 @@
 import "./Contact.css";
-import phoneIcon from "../../Assets/diablo-site-images copy/icons8-phone-50.png";
-import emailIcon from "../../Assets/diablo-site-images copy/icons8-email-50.png";
-import hoursIcon from "../../Assets/diablo-site-images copy/icons8-clock-50.png";
-import emergencyIcon from "../../Assets/diablo-site-images copy/icons8-emergency-50.png";
+import phoneIcon from "../../Assets/icons8-phone-50.png";
+import emailIcon from "../../Assets/icons8-email-50.png";
+import hoursIcon from "../../Assets/icons8-clock-50.png";
+import emergencyIcon from "../../Assets/icons8-emergency-50.png";
 
 function Contact() {
   return (

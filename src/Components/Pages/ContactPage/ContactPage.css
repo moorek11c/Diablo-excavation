@@ -2,7 +2,7 @@
   max-width: 1440px;
   background-color: #000000;
   height: 700px;
-  color: rgb(254, 144, 30);
+  color: #ffcc00;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +15,7 @@
 }
 
 .contact-page__info {
-  background-color: #fe901e;
+  background-color: #ffcc00;
   color: #000000;
   margin-top: 20px;
   width: 500px;

@@ -1,7 +1,8 @@
 import "./Footer.css";
-import diabloLogo from "../../Assets/diablo-site-images copy/diablo-excavation-dark Background Removed.png";
-import fbLogo from "../../Assets/diablo-site-images copy/facebook.png";
-import linkedinLogo from "../../Assets/diablo-site-images copy/linkedin.png";
+import diabloLogo from "../../Assets/diablo-excavation-dark Background Removed.png";
+import fbLogo from "../../Assets/facebook.png";
+import linkedinLogo from "../../Assets/linkedin.png";
+import instaLogo from "../../Assets/icons8-insta.svg";
 
 function Footer() {
   return (
@@ -13,7 +14,7 @@ function Footer() {
       <ul className="footer-links__list">
         <li className="footer__links-item">
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/p/Diablo-excavation-construction-inc-100091784948902/"
             target="_blank"
             rel="noopener noreferrer"
             className="footer__link footer__link--social"
@@ -36,6 +37,20 @@ function Footer() {
               className="footer__img footer__img-linkedin"
               src={linkedinLogo}
               alt="Facebook"
+            />
+          </a>
+        </li>
+        <li className="footer__links-item">
+          <a
+            href="https://www.instagram.com/diablo_excavation/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__link footer__link--social"
+          >
+            <img
+              className="footer__img footer__img-instagram"
+              src={instaLogo}
+              alt="instagram"
             />
           </a>
         </li>
