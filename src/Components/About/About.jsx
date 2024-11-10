@@ -1,5 +1,5 @@
 import "./About.css";
-import diabloLogo from "../../Assets/diablo-excavation-dark Background Removed.png";
+// import diabloLogo from "../../Assets/diablo-excavation-dark Background Removed.png";
 
 function About() {
   return (
@@ -15,11 +15,11 @@ function About() {
           what you&apos;re working on.
         </p>
       </div>
-      <img
+      {/* <img
         className="about__image"
         src={diabloLogo}
         alt="Discovery Bay city logo"
-      />
+      /> */}
     </section>
   );
 }

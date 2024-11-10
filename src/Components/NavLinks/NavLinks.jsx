@@ -30,9 +30,9 @@ function NavLinks() {
             className={({ isActive }) =>
               isActive ? "nav-link nav-link_active" : "nav-link"
             }
-            to="/contact"
+            to="/hours"
           >
-            Contact
+            Hours
           </NavLink>
         </li>
         <li className="nav-link">Gallery</li>

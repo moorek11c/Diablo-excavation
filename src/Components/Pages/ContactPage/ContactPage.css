@@ -1,8 +1,6 @@
 .contact-page {
   max-width: 1440px;
-  background-color: #000000;
   height: 700px;
-  color: #ffcc00;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,13 +13,13 @@
 }
 
 .contact-page__info {
-  background-color: #ffcc00;
   color: #000000;
   margin-top: 20px;
   width: 500px;
   height: 500px;
   border-radius: 10px;
   display: flex;
+  align-items: center;
 }
 .contact-page__list {
   width: 100%;

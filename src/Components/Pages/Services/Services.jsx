@@ -17,7 +17,7 @@ function Services() {
 
   return (
     <section className="services">
-      <h2 className="services__main-title">Service</h2>
+      <h2 className="services__main-title">Services</h2>
       <ServiceList onCardClick={handleCardClick} />
       <div className="services__content">
         <p

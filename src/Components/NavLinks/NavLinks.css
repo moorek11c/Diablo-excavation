@@ -5,19 +5,19 @@
 .nav-links__list {
   display: flex;
   list-style-type: none;
-  color: white;
+  color: #000;
 }
 
 .nav-link {
   margin-right: 20px;
-  color: white;
+  color: #000;
   text-decoration: none;
 }
 
 .nav-link:hover {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #000;
 }
 
 .nav-link_active {
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #000;
 }

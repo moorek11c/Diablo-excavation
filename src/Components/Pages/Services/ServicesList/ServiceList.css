@@ -2,7 +2,8 @@
   list-style: none;
   gap: 20px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  margin: 0 auto;
+  margin-left: 20px;
   padding: 0 20px;
 }
