@@ -30,13 +30,31 @@ function NavLinks() {
             className={({ isActive }) =>
               isActive ? "nav-link nav-link_active" : "nav-link"
             }
-            to="/hours"
+            to="/gallery"
           >
-            Hours
+            Gallery
           </NavLink>
         </li>
-        <li className="nav-link">Gallery</li>
-        <li className="nav-link">Reviews</li>
+        <li className="nav-link__item">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "nav-link nav-link_active" : "nav-link"
+            }
+            to="/reviews"
+          >
+            Reviews
+          </NavLink>
+        </li>
+        <li className="nav-link__item">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "nav-link nav-link_active" : "nav-link"
+            }
+            to="/contact"
+          >
+            Contact
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

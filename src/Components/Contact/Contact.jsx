@@ -1,26 +1,29 @@
 import "./Contact.css";
-import phoneIcon from "../../Assets/icons8-phone-50.png";
-import emailIcon from "../../Assets/icons8-email-50.png";
-import hoursIcon from "../../Assets/icons8-clock-50.png";
-import emergencyIcon from "../../Assets/icons8-emergency-50.png";
+import phoneIcon from "../../Assets/social/phoneIcon.png";
+import emailIcon from "../../Assets/social/icons8-email-50.png";
+import emergencyIcon from "../../Assets/social/emergencyIcon.png";
 
 function Contact() {
   return (
     <section className="contact">
       <ul className="contact__list">
-        <li className="contact__link">
-          <img src={hoursIcon} alt="Clock" className="contact__icon" />
-          <p className="contact__info">Hours: Monday - Friday 0700 - 1700</p>
-        </li>
-        <li className="contact__link">
+        <li className="contact__item">
           <img src={emailIcon} alt="Envelope" className="contact__icon" />
-          <p className="contact__info">info@Diabloexcavation.com</p>
+          <p className="contact__info">
+            <a className="contact-link" href="mailto:info@Diabloexcavation.com">
+              info@Diabloexcavation.com
+            </a>
+          </p>
         </li>
-        <li className="contact__link">
+        <li className="contact__item">
           <img src={phoneIcon} alt="Phone" className="contact__icon" />
-          <p className="contact__info">(925)628-8877</p>
+          <p className="contact__info">
+            <a className="contact-link" href="tel:+19256288877">
+              (925) 628-8877
+            </a>
+          </p>
         </li>
-        <li className="contact__link">
+        <li className="contact__item">
           <img src={emergencyIcon} alt="Siren" className="contact__icon" />
           <p className="contact__info">24/7 emergency service</p>
         </li>

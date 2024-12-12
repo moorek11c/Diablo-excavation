@@ -1,6 +1,6 @@
 import "./PopupWithForm.css";
 
-import closeIcon from "../../Assets/icons8-close-window-50.png";
+import closeIcon from "../../Assets/social/icons8-close-window-50.png";
 
 import { usePopup } from "../Hooks/PopupHook";
 

@@ -4,6 +4,9 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #ffcc00;
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
 }
 
 .header__logo {
@@ -18,4 +21,48 @@
   color: #000;
   font-size: x-small;
   text-align: left;
+  margin-right: auto;
+}
+
+.emergency-button {
+  margin-right: 10px;
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #ff0000;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.emergency-button:hover,
+.emergency-button:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.emergency-button:hover {
+  transform: translateY(-1px);
+}
+
+.emergency-button:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
 }

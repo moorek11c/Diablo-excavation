@@ -1,8 +1,8 @@
 import "./Footer.css";
-import diabloLogo from "../../Assets/diablo-excavation-dark Background Removed.png";
-import fbLogo from "../../Assets/facebook.png";
-import linkedinLogo from "../../Assets/linkedin.png";
-import instaLogo from "../../Assets/icons8-insta.svg";
+import diabloLogo from "../../Assets/social/diablo-excavation-dark Background Removed.png";
+import fbLogo from "../../Assets/social/facebook.png";
+import linkedinLogo from "../../Assets/social/linkedin.png";
+import instaLogo from "../../Assets/social/instagramIcon.svg";
 
 function Footer() {
   return (

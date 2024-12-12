@@ -2,7 +2,7 @@ import "./ServiceCard.css";
 
 function ServiceCard({ serviceData, onCardClick }) {
   const handleClick = () => {
-    onCardClick(serviceData.description);
+    onCardClick(serviceData.description, serviceData.photos);
   };
 
   return (

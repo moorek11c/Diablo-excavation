@@ -1,9 +1,11 @@
 import "./ContactPage.css";
+import Contact from "../../Contact/Contact";
 
 function ContactPage() {
   return (
     <section className="contact-page">
       <h2 className="contact-page__title">Contact Us</h2>
+      <Contact />
       <div className="contact-page__info">
         <ul className="contact-page__list contact-page__list-days">
           <h3 className="contact-page__sub-title">Days</h3>
@@ -19,13 +21,13 @@ function ContactPage() {
         <ul className="contact-page__list contact-page__list-hours">
           <h3 className="contact-page__sub-title">Hours</h3>
 
-          <li className="contact-page__item">7:00 AM - 7:00pm</li>
-          <li className="contact-page__item">7:00 AM - 7:00pm</li>
-          <li className="contact-page__item">7:00 AM - 7:00pm</li>
-          <li className="contact-page__item">7:00 AM - 7:00pm</li>
-          <li className="contact-page__item">7:00 AM - 7:00pm</li>
-          <li className="contact-page__item">7:00 AM - 7:00pm</li>
-          <li className="contact-page__item">7:00 AM - 7:00pm</li>
+          <li className="contact-page__item">7:00 AM - 7:00 PM</li>
+          <li className="contact-page__item">7:00 AM - 7:00 PM</li>
+          <li className="contact-page__item">7:00 AM - 7:00 PM</li>
+          <li className="contact-page__item">7:00 AM - 7:00 PM</li>
+          <li className="contact-page__item">7:00 AM - 7:00 PM</li>
+          <li className="contact-page__item">7:00 AM - 7:00 PM</li>
+          <li className="contact-page__item">7:00 AM - 7:00 PM</li>
         </ul>
       </div>
     </section>

@@ -10,9 +10,15 @@
   border-radius: 10px;
 }
 
-.contact__link {
+.contact__item {
   display: flex;
   align-items: center;
+  text-decoration: none;
+}
+
+.contact-link {
+  text-decoration: none;
+  color: #000;
 }
 
 .contact__icon {

@@ -3,5 +3,6 @@
   margin: 0 auto;
   font-family: "Cabinet Grotesk Regular", sans-serif, "Arial";
   scroll-behavior: smooth;
+  background-color: #000;
   /* border: 1px solid #fe901e; */
 }

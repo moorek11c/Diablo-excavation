@@ -6,29 +6,67 @@ import ServiceList from "./ServicesList/ServiceList";
 function Services() {
   const [selectedDescription, setSelectedDescription] = useState("");
   const [showDescription, setShowDescription] = useState(false);
+  const [selectedPhotos, setSelectedPhotos] = useState([]);
+  const [showPhotos, setShowPhotos] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleCardClick = (description) => {
+  const handleCardClick = (description, photos) => {
     setShowDescription(false); // Hide the description to reset the animation
-    setTimeout(() => {
+    setShowPhotos(false);
+    setLoading(true); // Set loading to true
+    setSelectedPhotos([]); // Clear previous photos
+
+    // Preload images
+    const preloadImages = photos.map((photo) => {
+      return new Promise((resolve) => {
+        const img = new Image();
+        img.src = photo;
+        img.onload = resolve;
+      });
+    });
+
+    Promise.all(preloadImages).then(() => {
       setSelectedDescription(description);
-      setShowDescription(true); // Show the description again to trigger the animation
-    }, 10); // Small delay to ensure the reset takes effect
+      setSelectedPhotos(photos || []); // Ensure photos is an array
+      setShowDescription(true);
+      setShowPhotos(true); // Show the description again to trigger the animation
+      setLoading(false); // Set loading to false once images are preloaded
+    });
   };
 
   return (
     <section className="services">
       <h2 className="services__main-title">Services</h2>
-      <ServiceList onCardClick={handleCardClick} />
-      <div className="services__content">
-        <p
-          className={`services__description ${
-            showDescription ? "services__description_opened" : ""
-          }`}
-        >
-          {selectedDescription}
-        </p>
-      </div>
+      <section className="all-services">
+        <ServiceList onCardClick={handleCardClick} />
+        <div className="services__content">
+          <p
+            className={`services__description ${
+              showDescription ? "services__description_opened" : ""
+            }`}
+          >
+            {selectedDescription}
+          </p>
+          <div
+            className={`services__photos ${
+              showPhotos ? "services__photos_opened" : ""
+            }`}
+          >
+            {loading && <div className="spinner"></div>}
+            {selectedPhotos.length > 0 &&
+              selectedPhotos.map((photo, id) => (
+                <img
+                  className="service-photo"
+                  key={id}
+                  src={photo}
+                  alt={`Service ${id + 1}`}
+                />
+              ))}
+          </div>
+        </div>
+      </section>
     </section>
   );
 }
+
 export default Services;
