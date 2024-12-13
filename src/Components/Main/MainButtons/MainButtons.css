@@ -1,9 +1,7 @@
 .main__buttons-list {
   width: 100%;
   display: flex;
-  position: relative;
   top: 200px;
-  display: flex;
   list-style: none;
 }
 .main__button-item {

@@ -2,9 +2,13 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   list-style: none;
-  justify-content: space-evenly;
+  justify-content: center;
+  row-gap: 20px;
+  column-gap: 20px;
   padding: 0;
+  margin-top: 20px;
 }
 
 .preview-image {
@@ -15,6 +19,6 @@
   height: auto;
 }
 
-.images {
+/* .images {
   display: flex;
-}
+} */

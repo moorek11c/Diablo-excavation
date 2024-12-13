@@ -3,7 +3,8 @@
   height: 700px;
   display: flex;
   flex-direction: column;
-  padding: 0px 20px;
+  box-sizing: border-box;
+  align-items: center;
 }
 
 .contact-page__title {
@@ -18,24 +19,24 @@
 .contact-page__info {
   color: #ffcc00;
   margin-top: 20px;
-  width: 500px;
-  height: 500px;
   border-radius: 10px;
   display: flex;
-  align-self: center;
   text-align: center;
-  align-items: center;
+  justify-content: space-around;
 }
 .contact-page__list {
-  width: 100%;
+  width: fit-content;
   list-style: none;
-  height: fit-content;
-}
-
-.contact-page__list-hours {
+  height: auto;
   padding: 0;
 }
 
 .contact-page__item {
   margin-top: 20px;
+  width: fit-content;
+}
+
+.contact-page__list,
+.contact-page__list-days {
+  padding-right: 20px;
 }

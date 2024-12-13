@@ -13,11 +13,6 @@ function MainButtons({ openQuotePopup }) {
             Get Quote
           </button>
         </li>
-        <li className="main__button-item">
-          <button className="main__button main__button-projects" type="button">
-            Our Projects
-          </button>
-        </li>
       </ul>
     </div>
   );

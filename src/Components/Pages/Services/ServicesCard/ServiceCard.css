@@ -31,3 +31,7 @@
   margin-top: 5px;
   margin-bottom: 20px;
 }
+.service__tip {
+  color: #ffcc00;
+  font-size: small;
+}

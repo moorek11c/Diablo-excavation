@@ -1,11 +1,10 @@
 .enter-page {
   display: flex;
   flex-direction: column;
-  display: flex;
-  align-content: center;
   align-items: center;
   max-width: 1440px;
   height: 100vh;
+  justify-content: center;
 }
 
 .enter-page__img {
@@ -36,4 +35,10 @@
 
 .enter-page__button:hover {
   background-color: #cc0000; /* Darker red on hover */
+}
+
+@media screen and (max-width: 585px) {
+  .enter-page__img {
+    width: 320px;
+  }
 }

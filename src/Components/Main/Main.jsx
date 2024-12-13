@@ -1,4 +1,7 @@
 import "./Main.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 import { usePopup } from "../Hooks/PopupHook";
 import MainButtons from "./MainButtons/MainButtons";
 import mainImg from "../../Assets/utilities/unsplash-digging.png";
@@ -8,7 +11,14 @@ function Main() {
 
   return (
     <main className="main">
-      <img className="main__image" src={mainImg} alt="Excevator digging" />
+      <LazyLoadImage
+        className="main__image"
+        alt="excavater-digging"
+        src={mainImg}
+        effect="blur"
+        height={600}
+        width={"100%"}
+      />
       <div className="main-overlay">
         <h2 className="main__mission-title">Our Mission </h2>
         <p className="main__mission-statement">

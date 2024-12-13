@@ -1,5 +1,4 @@
 import "./Footer.css";
-import diabloLogo from "../../Assets/social/diablo-excavation-dark Background Removed.png";
 import fbLogo from "../../Assets/social/facebook.png";
 import linkedinLogo from "../../Assets/social/linkedin.png";
 import instaLogo from "../../Assets/social/instagramIcon.svg";
@@ -8,7 +7,6 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer__container">
-        <img className="footer__img" src={diabloLogo} alt="" />
         <p className="footer__info">&copy; 2024 Diablo Excavation</p>
       </div>
       <ul className="footer-links__list">

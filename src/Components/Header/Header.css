@@ -22,6 +22,7 @@
   font-size: x-small;
   text-align: left;
   margin-right: auto;
+  display: none;
 }
 
 .emergency-button {
@@ -65,4 +66,23 @@
   background-color: #c85000;
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   transform: translateY(0);
+}
+
+@media screen and (max-width: 771px) {
+  .header__info,
+  .licence__number,
+  .dir__number,
+  .header__title {
+    margin: 0;
+    padding: 0;
+  }
+
+  .header__logo {
+    width: 100px;
+  }
+
+  .emergency-button {
+    font-size: 14px;
+    padding: 0.5rem 1rem;
+  }
 }

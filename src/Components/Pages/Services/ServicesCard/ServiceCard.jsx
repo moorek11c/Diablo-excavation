@@ -1,3 +1,5 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 import "./ServiceCard.css";
 
 function ServiceCard({ serviceData, onCardClick }) {
@@ -7,7 +9,12 @@ function ServiceCard({ serviceData, onCardClick }) {
 
   return (
     <div onClick={handleClick} className="service__card">
-      <img className="service__img" src={serviceData.image} alt="Excavator" />
+      <LazyLoadImage
+        className="service__img"
+        src={serviceData.image}
+        alt="Excavator"
+        effect="blur" // You can use other effects like "opacity" or "black-and-white"
+      />
       <div className="service__info">
         <h2 className="service__title">{serviceData.title}</h2>
       </div>

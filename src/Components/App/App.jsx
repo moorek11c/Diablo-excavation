@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { PopupProvider } from "../Contexts/PopupContext";
-import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 import "./App.css";
@@ -12,6 +11,7 @@ import QuotePopup from "../PopupWithForm/QuotePopup/QuotePopup";
 import ReviewsPage from "../Pages/ReviewsPage/ReviewsPage";
 import Gallery from "../Pages/Gallery/Gallery";
 import EnterPage from "../Pages/EnterPage/EnterPage";
+import ResponsiveHeader from "../Header/ResponsiveHeader/ResponsiveHeader";
 
 function App() {
   const [hasEntered, setHasEntered] = useState(false);
@@ -23,7 +23,7 @@ function App() {
     <PopupProvider>
       {hasEntered ? (
         <>
-          <Header />
+          <ResponsiveHeader />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/services" element={<Services />} />

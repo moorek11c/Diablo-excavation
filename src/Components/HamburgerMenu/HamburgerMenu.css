@@ -1,0 +1,21 @@
+.nav-link .hamburger-menu {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.mobile-menu {
+  background-color: #ffcc00;
+}
+
+.menu__icon {
+  width: 40px;
+}
+
+.mobile-menu__img {
+  height: 40px;
+  width: auto;
+}

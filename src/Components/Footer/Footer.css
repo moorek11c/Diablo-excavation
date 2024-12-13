@@ -12,13 +12,9 @@
   border-radius: 10px;
 }
 
-.footer__img {
-  width: 40px;
-  height: 40px;
-}
-
 .footer__info {
   margin-left: 10px;
+  margin-bottom: 0;
 }
 
 .footer__container {
@@ -29,9 +25,13 @@
 .footer-links__list {
   list-style: none;
   display: flex;
+  margin-bottom: 0;
 }
 
 .footer__img {
-  height: 24px;
-  width: 24px;
+  height: 16px;
+  width: 16px;
+}
+
+@media screen and (max-width: 768px) {
 }

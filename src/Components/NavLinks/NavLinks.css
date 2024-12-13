@@ -6,6 +6,7 @@
   display: flex;
   list-style-type: none;
   color: #000;
+  margin-bottom: 0;
 }
 
 .nav-link {
@@ -20,4 +21,14 @@
 
 .nav-link_active {
   border-bottom: 2px solid #000;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-link {
+    font-size: 14px;
+    margin-right: 8px;
+  }
+  .nav-links__list {
+    margin-left: 5px;
+  }
 }

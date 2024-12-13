@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import "./Services.css";
 import ServiceList from "./ServicesList/ServiceList";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function Services() {
   const [selectedDescription, setSelectedDescription] = useState("");
@@ -37,8 +38,10 @@ function Services() {
   return (
     <section className="services">
       <h2 className="services__main-title">Services</h2>
+      <p className="services__tip">Click one of the cards for more info</p>
       <section className="all-services">
         <ServiceList onCardClick={handleCardClick} />
+
         <div className="services__content">
           <p
             className={`services__description ${
@@ -55,7 +58,7 @@ function Services() {
             {loading && <div className="spinner"></div>}
             {selectedPhotos.length > 0 &&
               selectedPhotos.map((photo, id) => (
-                <img
+                <LazyLoadImage
                   className="service-photo"
                   key={id}
                   src={photo}
