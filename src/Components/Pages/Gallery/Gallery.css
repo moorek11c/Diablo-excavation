@@ -1,0 +1,13 @@
+.gallery-image {
+  width: 200px; /* Fixed width */
+  height: 200px; /* Fixed height */
+  object-fit: cover; /* Ensure the image covers the entire area */
+  margin: 10px; /* Add margin for consistent spacing */
+}
+
+.gallery-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; /* Add gap between images */
+}

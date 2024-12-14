@@ -1,71 +1,74 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import "./Gallery.css";
 
-export default function Gallery() {
-  const [photos, setPhotos] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null);
+function Gallery() {
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
-    // Fetch existing photos from the backend
-    const fetchPhotos = async () => {
+    const fetchImages = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/files");
-        const files = res.data;
-        const photoUrls = files.map(
-          (file) => `http://localhost:5000/image/${file.filename}`
-        );
-        setPhotos(photoUrls);
-      } catch (err) {
-        console.error(err);
+        const response = await fetch("http://localhost:3001/images/all");
+        if (response.ok) {
+          const data = await response.json();
+          setImages(data);
+        } else {
+          console.log("Failed to fetch images", response);
+        }
+      } catch (error) {
+        console.error("Error fetching images:", error);
       }
     };
 
-    fetchPhotos();
+    fetchImages();
   }, []);
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-
-  const handleUpload = async () => {
-    if (selectedFile) {
+  const handleFileChange = async (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
       const formData = new FormData();
-      formData.append("file", selectedFile);
+      formData.append("image", file);
 
       try {
-        const res = await axios.post("http://localhost:5000/upload", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+        const response = await fetch("http://localhost:3001/images/upload", {
+          method: "POST",
+          body: formData,
         });
 
-        const newPhoto = `http://localhost:5000/image/${res.data.file.filename}`;
-        setPhotos([...photos, newPhoto]);
-        setSelectedFile(null);
-      } catch (err) {
-        console.error(err);
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Image uploaded:", data);
+          setImage(data.imageId); // Save the image ID for later retrieval
+          // Fetch the updated list of images
+          const updatedImages = await fetch("http://localhost:3001/images/all");
+          const updatedData = await updatedImages.json();
+          setImages(updatedData);
+        } else {
+          console.log("File upload failed", response);
+        }
+      } catch (error) {
+        console.error("Error uploading file:", error);
       }
     }
   };
 
   return (
     <div className="gallery">
-      <h1>Gallery</h1>
-      <div className="upload-form">
-        <input type="file" onChange={handleFileChange} />
-        <button onClick={handleUpload}>Upload Photo</button>
-      </div>
-      <div className="photo-grid">
-        {photos.map((photo, index) => (
-          <img
-            key={index}
-            src={photo}
-            alt={`Uploaded ${index}`}
-            className="photo"
-          />
+      <h1>Upload an Image</h1>
+      <input type="file" onChange={handleFileChange} />
+      <h2>All Images:</h2>
+      <div className="gallery-images">
+        {images.map((img) => (
+          <div key={img._id}>
+            <img
+              src={`http://localhost:3001/images/${img._id}`}
+              alt={img.image_name}
+              className="gallery-image"
+            />
+          </div>
         ))}
       </div>
     </div>
   );
 }
+
+export default Gallery;
