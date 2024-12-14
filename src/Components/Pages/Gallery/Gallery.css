@@ -1,13 +1,39 @@
+.gallery__title {
+  text-align: center;
+  margin: 20px 0;
+  color: #ffcc00;
+}
+
+.gallery-upload__form {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.gallery-img__sbmt-button {
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
 .gallery-image {
   width: 200px; /* Fixed width */
   height: 200px; /* Fixed height */
   object-fit: cover; /* Ensure the image covers the entire area */
   margin: 10px; /* Add margin for consistent spacing */
 }
-
 .gallery-images {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px; /* Add gap between images */
+}
+
+.preview-image {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Ensure the image covers the entire area */
 }
