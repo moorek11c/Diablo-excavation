@@ -2,8 +2,16 @@ import "./Footer.css";
 import fbLogo from "../../Assets/social/facebook.png";
 import linkedinLogo from "../../Assets/social/linkedin.png";
 import instaLogo from "../../Assets/social/instagramIcon.svg";
+import { Link } from "react-router-dom";
+import { usePopup } from "../Hooks/PopupHook";
 
 function Footer() {
+  const { open } = usePopup("login");
+
+  const handleAdminClick = () => {
+    open();
+  };
+
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -51,6 +59,9 @@ function Footer() {
               alt="instagram"
             />
           </a>
+        </li>
+        <li className="footer__links-item">
+          <Link onClick={handleAdminClick}>admin</Link>
         </li>
       </ul>
     </footer>

@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PopupProvider } from "../Contexts/PopupContext";
 import Footer from "../Footer/Footer";
 
@@ -12,13 +12,24 @@ import ReviewsPage from "../Pages/ReviewsPage/ReviewsPage";
 import Gallery from "../Pages/Gallery/Gallery";
 import EnterPage from "../Pages/EnterPage/EnterPage";
 import ResponsiveHeader from "../Header/ResponsiveHeader/ResponsiveHeader";
+import Login from "../PopupWithForm/login/login";
 
 function App() {
-  const [hasEntered, setHasEntered] = useState(false);
+  const [hasEntered, setHasEntered] = useState(() => {
+    const savedHasEntered = localStorage.getItem("hasEntered");
+    return savedHasEntered === "true" ? true : false;
+  });
 
   const handleEnter = () => {
     setHasEntered(true);
+    localStorage.setItem("hasEntered", "true");
   };
+
+  useEffect(() => {
+    // Save the hasEntered state to localStorage whenever it changes
+    localStorage.setItem("hasEntered", hasEntered);
+  }, [hasEntered]);
+
   return (
     <PopupProvider>
       {hasEntered ? (
@@ -34,6 +45,7 @@ function App() {
           </Routes>
           <Footer />
           <QuotePopup />
+          <Login />
         </>
       ) : (
         <EnterPage onEnter={handleEnter} />

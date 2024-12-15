@@ -1,58 +1,64 @@
 import { useState, useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import axios from "axios";
+import {
+  uploadImage,
+  fetchImageById,
+  fetchAllImages,
+  deleteImageById,
+} from "../../../Utils/api";
 import "./Gallery.css";
 
 function Gallery() {
+  // State to store the file to be uploaded
   const [file, setFile] = useState(null);
+
+  // State to store the image ID of the uploaded file
   const [imageId, setImageId] = useState(null);
+
+  // State to store the URL of the uploaded file
   const [uploadedFileURL, setUploadedFileURL] = useState(null);
+
+  // State to store any errors that occur during the upload process
   const [error, setError] = useState(null);
+
+  // State to store all images in the gallery
   const [images, setImages] = useState([]);
 
   function handleChange(event) {
     setFile(event.target.files[0]);
   }
 
-  function handleSubmit(event) {
+  // Function to handle the form submission and upload the file to the backend
+  async function handleSubmit(event) {
     event.preventDefault();
-    const url = "http://localhost:3001/images/upload";
-    const formData = new FormData();
-    formData.append("image", file);
+    try {
+      const data = await uploadImage(file);
+      console.log("Upload response:", data);
 
-    const config = {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    };
+      // Update the state with the image ID`
+      setImageId(data.imageId);
+      setError(null); // Clear any previous errors
+    } catch (error) {
+      setError("Error uploading file. Please try again.");
+    }
+  }
 
-    axios
-      .post(url, formData, config)
-      .then((response) => {
-        console.log("Upload response:", response.data);
-        setImageId(response.data.imageId);
-        setError(null); // Clear any previous errors
-      })
-      .catch((error) => {
-        console.error("Error uploading file:", error);
-        setError("Error uploading file. Please try again.");
-      });
+  async function handleDelete(imageId) {
+    try {
+      await deleteImageById(imageId);
+      setImages(images.filter((image) => image._id !== imageId));
+    } catch (error) {
+      setError("Error deleting image. Please try again.");
+    }
   }
 
   useEffect(() => {
     if (imageId) {
       const fetchImage = async () => {
         try {
-          const response = await axios.get(
-            `http://localhost:3001/images/${imageId}`,
-            {
-              responseType: "blob",
-            }
-          );
-          const imageURL = URL.createObjectURL(response.data);
+          const imageURL = await fetchImageById(imageId);
           setUploadedFileURL(imageURL);
         } catch (error) {
-          console.error("Error fetching image:", error);
           setError("Error fetching image. Please try again.");
         }
       };
@@ -62,17 +68,16 @@ function Gallery() {
   }, [imageId]);
 
   useEffect(() => {
-    const fetchAllImages = async () => {
+    const fetchImages = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/images");
-        setImages(response.data);
+        const data = await fetchAllImages();
+        setImages(data);
       } catch (error) {
-        console.error("Error fetching images:", error);
         setError("Error fetching images. Please try again.");
       }
     };
 
-    fetchAllImages();
+    fetchImages();
   }, []);
 
   return (
@@ -89,23 +94,30 @@ function Gallery() {
         </button>
       </form>
       {error && <p className="error">{error}</p>}
-      {uploadedFileURL && (
-        <LazyLoadImage
-          effect="blur"
-          className="preview-image"
-          src={uploadedFileURL}
-          alt="Uploaded content"
-        />
-      )}
       <div className="gallery-images">
-        {images.map((image) => (
+        {uploadedFileURL && (
           <LazyLoadImage
             effect="blur"
-            key={image.id}
-            src={`http://localhost:3001/images/${image._id}`}
-            alt="Gallery content"
             className="gallery-image"
+            src={uploadedFileURL}
+            alt="Uploaded content"
           />
+        )}
+        {images.map((image) => (
+          <div key={image._id} className="gallery-image-container">
+            <LazyLoadImage
+              effect="blur"
+              src={`http://localhost:3001/images/${image._id}`}
+              alt="Gallery content"
+              className="gallery-image"
+            />
+            <button
+              className="delete-button"
+              onClick={() => handleDelete(image._id)}
+            >
+              X
+            </button>
+          </div>
         ))}
       </div>
     </div>
