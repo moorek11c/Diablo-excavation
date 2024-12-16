@@ -1,27 +1,27 @@
-import { useState } from "react";
 import PopupWithForm from "../PopupWithForm";
 import { loginAdmin } from "../../../Utils/api";
 import { usePopup } from "../../Hooks/PopupHook";
+import { useAuth } from "../../Contexts/AuthContext";
+import useForm from "../../Hooks/useForm";
+import TextInput from "../TextInput";
 import "./Login.css";
 
 function Login() {
   const { close } = usePopup();
+  const { login } = useAuth();
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const { token } = await loginAdmin(username, password);
-      localStorage.setItem("token", token);
-      // Redirect or perform any other action after successful login
-      close();
-    } catch (error) {
-      setError("Invalid credentials. Please try again.");
+  const { values, errors, handleChange, handleSubmit } = useForm(
+    { username: "", password: "" },
+    async (values) => {
+      const { token } = await loginAdmin(values.username, values.password);
+      if (token) {
+        login(token);
+        close();
+      } else {
+        throw { general: "Invalid credentials. Please try again." };
+      }
     }
-  };
+  );
 
   return (
     <div>
@@ -31,29 +31,22 @@ function Login() {
         buttonText="Login"
         onSubmit={handleSubmit}
       >
-        <label className="popup__label">
-          Username:
-          <input
-            className="popup__input"
-            type="text"
-            name="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
-        <br />
-        <label className="popup__label">
-          Password:
-          <input
-            className="popup__input"
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <br />
-        {error && <p className="error">{error}</p>}
+        <TextInput
+          label="Username"
+          name="username"
+          value={values.username}
+          onChange={handleChange}
+          error={errors.username}
+        />
+        <TextInput
+          label="Password"
+          name="password"
+          type="password"
+          value={values.password}
+          onChange={handleChange}
+          error={errors.password}
+        />
+        {errors.general && <p className="form-error">{errors.general}</p>}
       </PopupWithForm>
     </div>
   );

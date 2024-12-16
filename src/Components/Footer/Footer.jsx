@@ -4,8 +4,23 @@ import linkedinLogo from "../../Assets/social/linkedin.png";
 import instaLogo from "../../Assets/social/instagramIcon.svg";
 import { Link } from "react-router-dom";
 import { usePopup } from "../Hooks/PopupHook";
+import { useAuth } from "../Contexts/AuthContext";
 
 function Footer() {
+  const { token } = useAuth();
+
+  const renderButtons = () => {
+    if (!token) {
+      return (
+        <Link className="footer__admin-link" onClick={handleAdminClick}>
+          admin
+        </Link>
+      );
+    } else {
+      return <Link className="footer__admin-link">Logout</Link>;
+    }
+  };
+
   const { open } = usePopup("login");
 
   const handleAdminClick = () => {
@@ -60,9 +75,7 @@ function Footer() {
             />
           </a>
         </li>
-        <li className="footer__links-item">
-          <Link onClick={handleAdminClick}>admin</Link>
-        </li>
+        <li className="footer__links-item">{renderButtons()}</li>
       </ul>
     </footer>
   );

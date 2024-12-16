@@ -6,9 +6,11 @@ import {
   fetchAllImages,
   deleteImageById,
 } from "../../../Utils/api";
+import { useAuth } from "../../Contexts/AuthContext";
 import "./Gallery.css";
 
 function Gallery() {
+  const { token } = useAuth();
   // State to store the file to be uploaded
   const [file, setFile] = useState(null);
 
@@ -83,16 +85,18 @@ function Gallery() {
   return (
     <div className="gallery">
       <h1 className="gallery__title">Gallery</h1>
-      <form className="gallery-upload__form" onSubmit={handleSubmit}>
-        <input
-          className="gallery-file__input"
-          type="file"
-          onChange={handleChange}
-        />
-        <button className="gallery-img__sbmt-button" type="submit">
-          Upload
-        </button>
-      </form>
+      {token && (
+        <form className="gallery-upload__form" onSubmit={handleSubmit}>
+          <input
+            className="gallery-file__input"
+            type="file"
+            onChange={handleChange}
+          />
+          <button className="gallery-img__sbmt-button" type="submit">
+            Upload
+          </button>
+        </form>
+      )}
       {error && <p className="error">{error}</p>}
       <div className="gallery-images">
         {uploadedFileURL && (

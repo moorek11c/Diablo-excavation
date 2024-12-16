@@ -13,6 +13,7 @@ import Gallery from "../Pages/Gallery/Gallery";
 import EnterPage from "../Pages/EnterPage/EnterPage";
 import ResponsiveHeader from "../Header/ResponsiveHeader/ResponsiveHeader";
 import Login from "../PopupWithForm/login/login";
+import { AuthProvider } from "../Contexts/AuthContext";
 
 function App() {
   const [hasEntered, setHasEntered] = useState(() => {
@@ -32,24 +33,26 @@ function App() {
 
   return (
     <PopupProvider>
-      {hasEntered ? (
-        <>
-          <ResponsiveHeader />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/Reviews" element={<ReviewsPage />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="*" element={<HomePage />} />
-          </Routes>
-          <Footer />
-          <QuotePopup />
-          <Login />
-        </>
-      ) : (
-        <EnterPage onEnter={handleEnter} />
-      )}
+      <AuthProvider>
+        {hasEntered ? (
+          <>
+            <ResponsiveHeader />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/Reviews" element={<ReviewsPage />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="*" element={<HomePage />} />
+            </Routes>
+            <Footer />
+            <QuotePopup />
+            <Login />
+          </>
+        ) : (
+          <EnterPage onEnter={handleEnter} />
+        )}
+      </AuthProvider>
     </PopupProvider>
   );
 }
