@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "../Header";
-import HamburgerMenu from "../../HamburgerMenu/hamburgerMenu";
+import HamburgerMenu from "../../HamburgerMenu/HamburgerMenu";
 import "./ResponsiveHeader.css";
 
 const ResponsiveHeader = () => {

@@ -12,7 +12,7 @@ function Main() {
     <main className="main">
       <LazyLoadImage
         className="main__image"
-        alt="excavater-digging"
+        alt="excavater-digging image"
         src={mainImg}
         effect="blur"
         height={600}

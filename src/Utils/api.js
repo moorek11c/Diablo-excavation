@@ -65,7 +65,7 @@ export const fetchAllImages = async () => {
 };
 
 export const submitForm = async (formData) => {
-  const url = `${BASE_URL}/submit-form`;
+  const url = `${BASE_URL}/quote/submit-form`;
   try {
     const response = await fetch(url, {
       method: "POST",

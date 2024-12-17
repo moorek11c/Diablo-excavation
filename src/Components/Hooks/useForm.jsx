@@ -20,8 +20,6 @@ const useForm = (initialValues, onSubmit) => {
     } catch (error) {
       setErrors(error);
     }
-
-    onSubmit(values, setErrors);
   };
 
   return { values, handleChange, handleSubmit, errors };

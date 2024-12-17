@@ -1,7 +1,7 @@
 import { BASE_URL, handleResponse } from "../Utils/constants";
 
 export const loginAdmin = async (username, password) => {
-  const url = `${BASE_URL}/auth/login`;
+  const url = `${BASE_URL}/sign-in`;
   try {
     const response = await fetch(url, {
       method: "POST",

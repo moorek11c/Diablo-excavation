@@ -21,6 +21,12 @@ import utility2 from "../Assets/utilities/roadcross.png";
 import utility3 from "../Assets/utilities/gas3.png";
 import utility4 from "../Assets/utilities/vault&pipe.png";
 
+// Emergency
+import emergency from "../Assets/EmergencyImages/emergency1.png";
+import emergency2 from "../Assets/EmergencyImages/emergency2.png";
+import emergency3 from "../Assets/EmergencyImages/emergency3.png";
+import emergency4 from "../Assets/EmergencyImages/emergency4.png";
+
 const serviceData = [
   {
     id: 1,
@@ -52,7 +58,7 @@ const serviceData = [
     title: "24Hr On Call Emergency Services",
     description:
       "Our 24-hour emergency construction services are here to respond swiftly and effectively to urgent needs, no matter the time or weather conditions. From structural repairs and storm damage restoration to essential infrastructure fixes, our skilled team is equipped to handle a wide range of emergency situations with speed and professionalism. We prioritize safety and efficiency, minimizing disruptions and getting your property back to operational standards as quickly as possible. Trust us to be there when you need immediate, reliable support for any construction emergency.",
-    photos: [],
+    photos: [emergency, emergency2, emergency3, emergency4],
   },
 ];
 

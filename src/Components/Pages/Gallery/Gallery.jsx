@@ -26,6 +26,9 @@ function Gallery() {
   // State to store all images in the gallery
   const [images, setImages] = useState([]);
 
+  // State to store loading status
+  const [loading, setLoading] = useState(false);
+
   function handleChange(event) {
     setFile(event.target.files[0]);
   }
@@ -33,15 +36,22 @@ function Gallery() {
   // Function to handle the form submission and upload the file to the backend
   async function handleSubmit(event) {
     event.preventDefault();
+    if (!token) {
+      setError("You must be logged in to upload images.");
+      return;
+    }
+    setLoading(true);
     try {
       const data = await uploadImage(file);
       console.log("Upload response:", data);
 
-      // Update the state with the image ID`
       setImageId(data.imageId);
-      setError(null); // Clear any previous errors
+      setFile(null);
+      setError(null);
     } catch (error) {
       setError("Error uploading file. Please try again.");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -71,11 +81,14 @@ function Gallery() {
 
   useEffect(() => {
     const fetchImages = async () => {
+      setLoading(true);
       try {
         const data = await fetchAllImages();
         setImages(data);
       } catch (error) {
         setError("Error fetching images. Please try again.");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -91,9 +104,14 @@ function Gallery() {
             className="gallery-file__input"
             type="file"
             onChange={handleChange}
+            value={file ? file.name : ""}
           />
-          <button className="gallery-img__sbmt-button" type="submit">
-            Upload
+          <button
+            className="gallery-img__sbmt-button"
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "Uploading..." : "Upload"}
           </button>
         </form>
       )}
@@ -112,7 +130,7 @@ function Gallery() {
             <LazyLoadImage
               effect="blur"
               src={`http://localhost:3001/images/${image._id}`}
-              alt="Gallery content"
+              alt="Gallery content image"
               className="gallery-image"
             />
             {token && (

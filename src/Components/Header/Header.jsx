@@ -18,7 +18,11 @@ function Header() {
   return (
     <header className="header">
       <NavLink to="/">
-        <img className="header__logo" src={mainLogo} alt="" />
+        <img
+          className="header__logo"
+          src={mainLogo}
+          alt="diablo-construction logo"
+        />
       </NavLink>
       <div className="header__info">
         <h1 className="header__title">Diablo Excavation & Construction Inc.</h1>

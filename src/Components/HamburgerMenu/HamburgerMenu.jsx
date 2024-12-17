@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import DiabloLogo from "../../Assets/social/diablo-excavation-header-logo.png";
 import mobileMenuIcon from "../../Assets/social/mobileMenuIcon.svg";
-import "./hamburgerMenu.css";
+import "./HamburgerMenu.css";
 import {
   MDBContainer,
   MDBNavbar,
