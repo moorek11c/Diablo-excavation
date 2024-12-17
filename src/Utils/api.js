@@ -65,7 +65,7 @@ export const fetchAllImages = async () => {
 };
 
 export const submitForm = async (formData) => {
-  const url = `${BASE_URL}/api/submit-form`;
+  const url = `${BASE_URL}/submit-form`;
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -80,26 +80,6 @@ export const submitForm = async (formData) => {
     return await response.json();
   } catch (error) {
     console.error("Error submitting form:", error);
-    throw error;
-  }
-};
-
-export const loginAdmin = async (username, password) => {
-  const url = `${BASE_URL}/api/auth/login`;
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    });
-    if (!response.ok) {
-      throw new Error("Invalid credentials");
-    }
-    return await response.json();
-  } catch (error) {
-    console.error("Error logging in:", error);
     throw error;
   }
 };

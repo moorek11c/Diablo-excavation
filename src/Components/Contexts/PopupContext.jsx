@@ -6,7 +6,6 @@ export const PopupProvider = ({ children }) => {
   const [activePopup, setActivePopup] = useState(null);
 
   const openPopup = (popupName) => {
-    console.log(popupName);
     setActivePopup(popupName);
   };
   const closePopup = () => {

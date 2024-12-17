@@ -33,5 +33,15 @@
   width: 16px;
 }
 
+.footer__sign-in,
+.footer__sign-out {
+  background-color: #000;
+  border: none;
+  color: #ffcc00;
+
+  padding: 0 5px;
+  margin: 0;
+}
+
 @media screen and (max-width: 768px) {
 }

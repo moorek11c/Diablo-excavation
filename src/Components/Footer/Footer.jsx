@@ -2,29 +2,36 @@ import "./Footer.css";
 import fbLogo from "../../Assets/social/facebook.png";
 import linkedinLogo from "../../Assets/social/linkedin.png";
 import instaLogo from "../../Assets/social/instagramIcon.svg";
-import { Link } from "react-router-dom";
-import { usePopup } from "../Hooks/PopupHook";
+import { usePopup } from "../Hooks/usePopup";
 import { useAuth } from "../Contexts/AuthContext";
 
 function Footer() {
-  const { token } = useAuth();
-
-  const renderButtons = () => {
-    if (!token) {
-      return (
-        <Link className="footer__admin-link" onClick={handleAdminClick}>
-          admin
-        </Link>
-      );
-    } else {
-      return <Link className="footer__admin-link">Logout</Link>;
-    }
-  };
+  const { token, logout } = useAuth();
 
   const { open } = usePopup("login");
 
   const handleAdminClick = () => {
     open();
+  };
+
+  const renderButtons = () => {
+    if (!token) {
+      return (
+        <button
+          type="button"
+          className="footer__sign-in"
+          onClick={handleAdminClick}
+        >
+          Login
+        </button>
+      );
+    } else {
+      return (
+        <button onClick={logout} className="footer__sign-out">
+          Logout
+        </button>
+      );
+    }
   };
 
   return (

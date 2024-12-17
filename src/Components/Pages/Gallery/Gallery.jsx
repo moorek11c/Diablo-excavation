@@ -115,12 +115,14 @@ function Gallery() {
               alt="Gallery content"
               className="gallery-image"
             />
-            <button
-              className="delete-button"
-              onClick={() => handleDelete(image._id)}
-            >
-              X
-            </button>
+            {token && (
+              <button
+                className="delete-button"
+                onClick={() => handleDelete(image._id)}
+              >
+                X
+              </button>
+            )}
           </div>
         ))}
       </div>

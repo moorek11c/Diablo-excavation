@@ -1,6 +1,6 @@
 import "./PopupWithForm.css";
 import closeIcon from "../../Assets/social/icons8-close-window-50.png";
-import { usePopup } from "../Hooks/PopupHook";
+import { usePopup } from "../Hooks/usePopup";
 
 function PopupWithForm({ title, popupName, buttonText, children, onSubmit }) {
   const { isOpen, close } = usePopup(popupName);

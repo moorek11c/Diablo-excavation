@@ -1,6 +1,6 @@
 import PopupWithForm from "../PopupWithForm";
-import { loginAdmin } from "../../../Utils/api";
-import { usePopup } from "../../Hooks/PopupHook";
+import { loginAdmin } from "../../../Utils/auth";
+import { usePopup } from "../../Hooks/usePopup";
 import { useAuth } from "../../Contexts/AuthContext";
 import useForm from "../../Hooks/useForm";
 import TextInput from "../TextInput";
@@ -13,12 +13,17 @@ function Login() {
   const { values, errors, handleChange, handleSubmit } = useForm(
     { username: "", password: "" },
     async (values) => {
-      const { token } = await loginAdmin(values.username, values.password);
-      if (token) {
-        login(token);
-        close();
-      } else {
-        throw { general: "Invalid credentials. Please try again." };
+      try {
+        const data = await loginAdmin(values.username, values.password);
+        if (data.token) {
+          login(data.token);
+          close();
+        } else {
+          throw new Error("Invalid credentials. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error logging in:", error);
+        throw { general: error.message };
       }
     }
   );
