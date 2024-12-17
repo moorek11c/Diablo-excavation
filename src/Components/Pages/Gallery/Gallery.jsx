@@ -104,7 +104,6 @@ function Gallery() {
             className="gallery-file__input"
             type="file"
             onChange={handleChange}
-            value={file ? file.name : ""}
           />
           <button
             className="gallery-img__sbmt-button"
