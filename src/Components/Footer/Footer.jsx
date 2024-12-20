@@ -3,35 +3,12 @@ import fbLogo from "../../Assets/social/fblogo.svg";
 import linkedinLogo from "../../Assets/social/linkedin.png";
 import instaLogo from "../../Assets/social/instagramIcon.svg";
 import { usePopup } from "../Hooks/usePopup";
-import { useAuth } from "../Contexts/AuthContext";
 
 function Footer() {
-  const { token, logout } = useAuth();
-
   const { open } = usePopup("login");
 
   const handleAdminClick = () => {
     open();
-  };
-
-  const renderButtons = () => {
-    if (!token) {
-      return (
-        <button
-          type="button"
-          className="footer__sign-in"
-          onClick={handleAdminClick}
-        >
-          Login
-        </button>
-      );
-    } else {
-      return (
-        <button onClick={logout} className="footer__sign-out">
-          Logout
-        </button>
-      );
-    }
   };
 
   return (
@@ -82,7 +59,16 @@ function Footer() {
             />
           </a>
         </li>
-        <li className="footer__links-item">{renderButtons()}</li>
+        <li className="footer__links-item">
+          {" "}
+          <button
+            type="button"
+            className="footer__sign-in"
+            onClick={handleAdminClick}
+          >
+            Login
+          </button>
+        </li>
       </ul>
     </footer>
   );

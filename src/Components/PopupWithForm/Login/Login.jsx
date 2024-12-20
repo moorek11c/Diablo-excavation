@@ -1,22 +1,24 @@
 import PopupWithForm from "../PopupWithForm";
-import { loginAdmin } from "../../../Utils/auth";
+import { register } from "../../../Utils/auth";
 import { usePopup } from "../../Hooks/usePopup";
-import { useAuth } from "../../Contexts/AuthContext";
 import useForm from "../../Hooks/useForm";
 import TextInput from "../TextInput";
 import "./Login.css";
 
 function Login() {
   const { close } = usePopup();
-  const { login } = useAuth();
+  const { open } = usePopup("signup");
+
+  const handleClick = () => {
+    open();
+  };
 
   const { values, errors, handleChange, handleSubmit } = useForm(
     { username: "", password: "" },
     async (values) => {
       try {
-        const data = await loginAdmin(values.username, values.password);
+        const data = await register(values.username, values.password);
         if (data.token) {
-          login(data.token);
           close();
         } else {
           throw new Error("Invalid credentials. Please try again.");
@@ -52,6 +54,9 @@ function Login() {
           error={errors.password}
         />
         {errors.general && <p className="form-error">{errors.general}</p>}
+        <button type="button" onClick={handleClick} className="popup__link">
+          signup
+        </button>
       </PopupWithForm>
     </div>
   );

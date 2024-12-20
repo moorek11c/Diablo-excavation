@@ -5,6 +5,11 @@ import { usePopup } from "../Hooks/usePopup";
 function PopupWithForm({ title, popupName, buttonText, children, onSubmit }) {
   const { isOpen, close } = usePopup(popupName);
 
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    onSubmit();
+  };
+
   return (
     <div className={`popup ${isOpen ? "popup_opened" : ""}`}>
       <div className={`popup__container popup__container--${popupName}`}>
