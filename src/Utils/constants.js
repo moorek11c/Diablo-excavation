@@ -1,4 +1,7 @@
-export const BASE_URL = "http://localhost:3001";
+export const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "api.diabloexcavation.com"
+    : "http://localhost:3001";
 
 export const handleResponse = async (response) => {
   if (!response.ok) {

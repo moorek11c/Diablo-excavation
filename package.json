@@ -3,9 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://diabloexcavation.com",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
+    "deploy":"npm run build && scp -r ./dist/* rkmoore@diabloexcavation.com:/home/rkmoore/frontend",
+
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
