@@ -4,28 +4,28 @@ import pipeIcon from "../Assets/social/pipeIcon.png";
 import twentyfour from "../Assets/social/emergencyIcon.png";
 
 // concretePhotos
-import concrete1 from "../Assets/concrete.asphalt/asphalt-cutting.png";
-import concrete2 from "../Assets/concrete.asphalt/concrete-repair.png";
-import concrete3 from "../Assets/concrete.asphalt/cutconcrete.png";
-import concrete4 from "../Assets/concrete.asphalt/driveway-concrete.png";
+import concrete1 from "../Assets/concrete.asphalt/asphalt-cutting.jpeg";
+import concrete2 from "../Assets/concrete.asphalt/concrete-repair.jpeg";
+import concrete3 from "../Assets/concrete.asphalt/cutconcrete.jpeg";
+import concrete4 from "../Assets/concrete.asphalt/driveway-concrete.jpeg";
 
 // excavation
-import excavation1 from "../Assets/Excavation/largeGrade.png";
-import excavation2 from "../Assets/Excavation/gravelSpread.png";
-import excavation3 from "../Assets/Excavation/double-pipe-trench.png";
-import excavation4 from "../Assets/Excavation/grading.png";
+import excavation1 from "../Assets/Excavation/largeGrade.jpeg";
+import excavation2 from "../Assets/Excavation/gravelSpread.jpeg";
+import excavation3 from "../Assets/Excavation/double-pipe-trench.jpeg";
+import excavation4 from "../Assets/Excavation/grading.jpeg";
 
 // utilities
-import utility1 from "../Assets/utilities/c900tap.png";
-import utility2 from "../Assets/utilities/roadcross.png";
-import utility3 from "../Assets/utilities/gas3.png";
-import utility4 from "../Assets/utilities/vault&pipe.png";
+import utility1 from "../Assets/utilities/c900tap.jpeg";
+import utility2 from "../Assets/utilities/roadcross.jpeg";
+import utility3 from "../Assets/utilities/expose2 Large.jpeg";
+import utility4 from "../Assets/utilities/vault&pipe.jpeg";
 
 // Emergency
-import emergency from "../Assets/EmergencyImages/emergency1.png";
-import emergency2 from "../Assets/EmergencyImages/emergency2.png";
-import emergency3 from "../Assets/EmergencyImages/emergency3.png";
-import emergency4 from "../Assets/EmergencyImages/emergency4.png";
+import emergency from "../Assets/EmergencyImages/emergency1.jpeg";
+import emergency2 from "../Assets/EmergencyImages/emergency2.jpeg";
+import emergency3 from "../Assets/EmergencyImages/emergency3.jpeg";
+import emergency4 from "../Assets/EmergencyImages/emergency4.jpeg";
 
 const serviceData = [
   {

@@ -1,7 +1,7 @@
-import jobsite1 from "../../Assets/jobsite/3trucksonroad.png";
-import jobsite2 from "../../Assets/jobsite/jobStage.png";
-import jobsite3 from "../../Assets/jobsite/roadclosure.png";
-import jobsite4 from "../../Assets/utilities/roadcross.png";
+import jobsite1 from "../../Assets/jobsite/3trucksonroad.jpeg";
+import jobsite2 from "../../Assets/jobsite/jobStage.jpeg";
+import jobsite3 from "../../Assets/jobsite/roadclosure.jpeg";
+import jobsite4 from "../../Assets/utilities/roadcross.jpeg";
 
 const previewImgs = [
   {

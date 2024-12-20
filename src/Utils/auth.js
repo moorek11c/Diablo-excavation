@@ -1,13 +1,14 @@
 import { BASE_URL, handleResponse } from "../Utils/constants";
 
 export const loginAdmin = async (username, password) => {
-  const url = `${BASE_URL}/sign-in`;
   try {
-    const response = await fetch(url, {
+    const response = await fetch(`${BASE_URL}/sign-in`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      mode: "cors",
+      credentials: "include",
       body: JSON.stringify({ username, password }),
     });
     const data = await handleResponse(response);

@@ -3,7 +3,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { usePopup } from "../Hooks/usePopup";
 import MainButtons from "./MainButtons/MainButtons";
-import mainImg from "../../Assets/utilities/unsplash-digging.png";
+import mainImg from "../../Assets/utilities/unsplash-digging.jpeg";
 
 function Main() {
   const { open: openQuotePopup } = usePopup("quote-form");

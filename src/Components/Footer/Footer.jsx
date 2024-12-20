@@ -1,5 +1,5 @@
 import "./Footer.css";
-import fbLogo from "../../Assets/social/facebook.png";
+import fbLogo from "../../Assets/social/fblogo.svg";
 import linkedinLogo from "../../Assets/social/linkedin.png";
 import instaLogo from "../../Assets/social/instagramIcon.svg";
 import { usePopup } from "../Hooks/usePopup";
