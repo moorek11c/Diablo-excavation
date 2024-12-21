@@ -4,6 +4,8 @@ export const BASE_URL =
     : "http://localhost:3001";
 
 export const handleResponse = (res) => {
+  console.log(res);
+
   if (!res.ok) {
     return Promise.reject(`Error: ${res.status}`);
   }

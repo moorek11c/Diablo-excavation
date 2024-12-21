@@ -1,21 +1,17 @@
 import "./Footer.css";
-import fbLogo from "../../Assets/social/fblogo.svg";
-import linkedinLogo from "../../Assets/social/linkedin.png";
-import instaLogo from "../../Assets/social/instagramIcon.svg";
-import { usePopup } from "../Hooks/usePopup";
+import fbLogo from "../../Assets/social/newFBlogo.svg";
+import linkedinLogo from "../../Assets/social/newLinkedinlogo.svg";
+import instaLogo from "../../Assets/social/newIGlogo.svg";
 
 function Footer() {
-  const { open } = usePopup("login");
-
-  const handleAdminClick = () => {
-    open();
-  };
-
   return (
     <footer className="footer">
-      <div className="footer__container">
+      <div className="footer__info-container">
         <p className="footer__info">&copy; 2024 Diablo Excavation</p>
+        <p className="footer__info">CA LIC# 1110240</p>
+        <p className="footer__info">Dir# 1001153835</p>
       </div>
+
       <ul className="footer-links__list">
         <li className="footer__links-item">
           <a
@@ -58,16 +54,6 @@ function Footer() {
               alt="instagram"
             />
           </a>
-        </li>
-        <li className="footer__links-item">
-          {" "}
-          <button
-            type="button"
-            className="footer__sign-in"
-            onClick={handleAdminClick}
-          >
-            Login
-          </button>
         </li>
       </ul>
     </footer>

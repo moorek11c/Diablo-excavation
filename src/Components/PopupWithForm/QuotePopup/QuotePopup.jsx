@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./QuotePopup.css";
 import PopupWithForm from "../PopupWithForm";
-import { submitForm } from "../../../Utils/api";
 
 function QuotePopup() {
   const [formData, setFormData] = useState({
@@ -21,11 +20,22 @@ function QuotePopup() {
 
   const handleSubmit = async () => {
     try {
-      const response = await submitForm(formData);
-      close();
-      console.log("Form submitted successfully:", response);
+      const response = await fetch("https://formspree.io/moorek11c@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log("Email sent successfully!");
+        close();
+      } else {
+        console.error("Error sending email:", response.status);
+      }
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Error sending email:", error);
     }
   };
 

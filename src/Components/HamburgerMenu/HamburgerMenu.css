@@ -18,4 +18,5 @@
 .mobile-menu__img {
   height: 40px;
   width: auto;
+  cursor: pointer;
 }

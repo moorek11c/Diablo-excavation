@@ -24,12 +24,6 @@ function Header() {
           alt="diablo-construction logo"
         />
       </NavLink>
-      <div className="header__info">
-        <h1 className="header__title">Diablo Excavation & Construction Inc.</h1>
-        <p className="licence__number">CA LIC# 1110240</p>
-        <p className="dir__number">Dir# 1001153835</p>
-      </div>
-
       <NavLinks />
       <button
         onClick={handleEmergencyClick}

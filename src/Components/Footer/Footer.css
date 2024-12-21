@@ -7,7 +7,7 @@
   align-items: center;
   height: 65px;
   color: #333;
-  font-size: 14px;
+  font-size: 11px;
   background-color: #ffcc00;
   border-radius: 10px;
 }
@@ -19,7 +19,6 @@
 
 .footer__container {
   display: flex;
-  align-items: center;
 }
 
 .footer-links__list {
@@ -30,18 +29,5 @@
 
 .footer__img {
   height: 16px;
-  width: 16px;
-}
-
-.footer__sign-in,
-.footer__sign-out {
-  background-color: #000;
-  border: none;
-  color: #ffcc00;
-
-  padding: 0 5px;
-  margin: 0;
-}
-
-@media screen and (max-width: 768px) {
+  width: auto;
 }

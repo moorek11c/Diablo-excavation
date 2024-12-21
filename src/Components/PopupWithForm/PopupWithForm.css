@@ -35,10 +35,9 @@
   background-color: rgb(255, 255, 255);
   position: relative;
   width: 600px;
-  height: 700px;
+  height: auto;
   border-radius: 20px;
   flex-direction: column;
-  overflow-y: auto;
 }
 
 .popup__input {

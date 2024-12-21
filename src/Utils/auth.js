@@ -1,27 +1,6 @@
 import { BASE_URL } from "../Utils/constants";
 import { handleResponse } from "./constants";
 
-export const signin = async ({ email, password }) => {
-  try {
-    const response = await fetch(`${BASE_URL}/signin`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-    const data = await handleResponse(response);
-
-    if (!data || !data.user || !data.token) {
-      throw new Error("User data is incomplete");
-    }
-    return data;
-  } catch (error) {
-    console.error("Error logging in:", error.message);
-    throw error;
-  }
-};
-
 // export const register = async ({ username, email, password }) => {
 //   try {
 //     const response = await fetch(`${BASE_URL}/signup`, {
@@ -39,8 +18,9 @@ export const signin = async ({ email, password }) => {
 //   }
 // };
 
-export const register = async (username, email, password) => {
-  const response = await fetch(`${BASE_URL}/signup`, {
+export const register = async ({ username, email, password }) => {
+  console.log(username, email, password);
+  const response = await fetch(`${BASE_URL}/users/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -50,13 +30,15 @@ export const register = async (username, email, password) => {
   return handleResponse(response);
 };
 
-export const authorize = async (email, password) => {
-  const response = await fetch(`${BASE_URL}/signin`, {
+export const authorize = async ({ username, password }) => {
+  console.log(username, password);
+
+  const response = await fetch(`${BASE_URL}/users/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ username, password }),
   });
   return handleResponse(response);
 };

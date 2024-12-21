@@ -12,19 +12,8 @@ import QuotePopup from "../PopupWithForm/QuotePopup/QuotePopup";
 import ReviewsPage from "../Pages/ReviewsPage/ReviewsPage";
 import Gallery from "../Pages/Gallery/Gallery";
 import ResponsiveHeader from "../Header/ResponsiveHeader/ResponsiveHeader";
-import Login from "../PopupWithForm/Login/Login";
-import Signup from "../PopupWithForm/Signup/Signup";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const handleRegester = (values) => {
-    setCurrentUser(values);
-    setIsLoggedIn(true);
-    console.log("register", values);
-  };
-
   return (
     <PopupProvider>
       <>
@@ -35,17 +24,10 @@ function App() {
           <Route path="/Reviews" element={<ReviewsPage />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route
-            path="*"
-            element={
-              <HomePage isLoggedIn={isLoggedIn} currentUser={currentUser} />
-            }
-          />
+          <Route path="*" element={<HomePage />} />
         </Routes>
         <Footer />
         <QuotePopup />
-        <Login />
-        <Signup onSubmit={handleRegester} />
       </>
     </PopupProvider>
   );
