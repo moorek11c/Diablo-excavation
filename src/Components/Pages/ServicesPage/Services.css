@@ -101,6 +101,12 @@
   animation: spin 1s linear infinite;
 }
 
+@media screen and (max-width: 559px) {
+  .service-photo {
+    width: 100%;
+  }
+}
+
 @keyframes spin {
   0% {
     transform: translate(-50%, -50%) rotate(0deg);

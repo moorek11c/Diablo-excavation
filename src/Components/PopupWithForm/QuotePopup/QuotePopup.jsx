@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "./QuotePopup.css";
+import { usePopup } from "../../Hooks/usePopup";
 import PopupWithForm from "../PopupWithForm";
 
 function QuotePopup() {
+  const { close } = usePopup("quote-form");
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -18,33 +21,50 @@ function QuotePopup() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setIsLoading(true);
     try {
-      const response = await fetch("https://formspree.io/moorek11c@gmail.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://formsubmit.co/info@diabloexcavation.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         console.log("Email sent successfully!");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phoneNumber: "",
+          city: "",
+          state: "",
+          details: "",
+        });
+        setIsLoading(false);
         close();
       } else {
         console.error("Error sending email:", response.status);
       }
     } catch (error) {
       console.error("Error sending email:", error);
+      setIsLoading(false);
     }
   };
 
   return (
     <div>
       <PopupWithForm
+        action={handleSubmit}
         popupName="quote-form"
         title="Estimate"
-        buttonText="Submit"
+        buttonText={isLoading ? "Sending..." : "Send"}
         onSubmit={handleSubmit}
       >
         <label htmlFor="first-name" className="popup__label">
@@ -57,6 +77,7 @@ function QuotePopup() {
             type="text"
             value={formData.firstName}
             onChange={handleChange}
+            required
           />
         </label>
         <label htmlFor="last-name" className="popup__label">
@@ -69,6 +90,7 @@ function QuotePopup() {
             type="text"
             onChange={handleChange}
             value={formData.lastName}
+            required
           />
         </label>
         <label htmlFor="email" className="popup__label">
@@ -81,6 +103,7 @@ function QuotePopup() {
             type="email"
             onChange={handleChange}
             value={formData.email}
+            required
           />
         </label>
         <label htmlFor="phone" className="popup__label">
@@ -93,6 +116,7 @@ function QuotePopup() {
             type="tel"
             onChange={handleChange}
             value={formData.phoneNumber}
+            required
           />
         </label>
         <label htmlFor="city" className="popup__label">
@@ -105,6 +129,7 @@ function QuotePopup() {
             type="text"
             onChange={handleChange}
             value={formData.city}
+            required
           />
         </label>
         <label htmlFor="state" className="popup__label">
@@ -117,6 +142,7 @@ function QuotePopup() {
             type="text"
             onChange={handleChange}
             value={formData.state}
+            required
           />
         </label>
         <label htmlFor="details" className="popup__label">
@@ -128,6 +154,7 @@ function QuotePopup() {
             name="details"
             onChange={handleChange}
             value={formData.details}
+            required
           />
         </label>
       </PopupWithForm>

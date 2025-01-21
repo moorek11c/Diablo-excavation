@@ -35,3 +35,12 @@
   color: #ffcc00;
   font-size: small;
 }
+
+@media screen and (max-width: 559px) {
+  .service__card {
+    width: 400px;
+  }
+  .service__card:hover {
+    opacity: 1;
+  }
+}
